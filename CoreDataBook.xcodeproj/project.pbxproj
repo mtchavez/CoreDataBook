@@ -36,19 +36,19 @@
 		0610300613078B7A00123010 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		0610300713078B7A00123010 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0610300813078B7A00123010 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0610300B13078B7A00123010 /* CoreDataBook-Info.plist */ = {isa = PBXFileReference; path = "CoreDataBook-Info.plist"; sourceTree = "<group>"; };
+		0610300B13078B7A00123010 /* CoreDataBook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataBook-Info.plist"; sourceTree = "<group>"; };
 		0610300D13078B7A00123010 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0610300F13078B7A00123010 /* CoreDataBook-Prefix.pch */ = {isa = PBXFileReference; path = "CoreDataBook-Prefix.pch"; sourceTree = "<group>"; };
+		0610300F13078B7A00123010 /* CoreDataBook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataBook-Prefix.pch"; sourceTree = "<group>"; };
 		0610301013078B7A00123010 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0610301313078B7A00123010 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		0610301513078B7A00123010 /* CoreDataBookAppDelegate.h */ = {isa = PBXFileReference; path = CoreDataBookAppDelegate.h; sourceTree = "<group>"; };
+		0610301513078B7A00123010 /* CoreDataBookAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataBookAppDelegate.h; sourceTree = "<group>"; };
 		0610301613078B7A00123010 /* CoreDataBookAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataBookAppDelegate.m; sourceTree = "<group>"; };
 		0610301913078B7B00123010 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		0610301C13078B7B00123010 /* CoreDataBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataBook.xcdatamodel; sourceTree = "<group>"; };
 		0610302313078B7B00123010 /* CoreDataBookTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataBookTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0610302913078B7B00123010 /* CoreDataBookTests-Info.plist */ = {isa = PBXFileReference; path = "CoreDataBookTests-Info.plist"; sourceTree = "<group>"; };
+		0610302913078B7B00123010 /* CoreDataBookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataBookTests-Info.plist"; sourceTree = "<group>"; };
 		0610302B13078B7B00123010 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0610302D13078B7B00123010 /* CoreDataBookTests-Prefix.pch */ = {isa = PBXFileReference; path = "CoreDataBookTests-Prefix.pch"; sourceTree = "<group>"; };
+		0610302D13078B7B00123010 /* CoreDataBookTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataBookTests-Prefix.pch"; sourceTree = "<group>"; };
 		0610302E13078B7B00123010 /* CoreDataBookTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataBookTests.h; sourceTree = "<group>"; };
 		0610303013078B7B00123010 /* CoreDataBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataBookTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */

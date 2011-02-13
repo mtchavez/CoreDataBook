@@ -1,0 +1,23 @@
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+profile
+
+#test stuff ignored for now
+asi-http-request/*
+brominet/*
+server/*
