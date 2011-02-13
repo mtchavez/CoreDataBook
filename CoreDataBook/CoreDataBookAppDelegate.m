@@ -10,7 +10,7 @@
 
 @implementation CoreDataBookAppDelegate
 
-@synthesize window;
+@synthesize window, recipeArrayController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -195,6 +195,50 @@
     [__persistentStoreCoordinator release];
     [__managedObjectModel release];
     [super dealloc];
+}
+
+#pragma -
+#pragma Button Actions
+
+- (IBAction)addImage:(id)sender {
+    id recipe = [[recipeArrayController selectedObjects] lastObject]; 
+    
+    if (!recipe) return;
+    
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    [openPanel setCanChooseDirectories:NO]; 
+    [openPanel setCanCreateDirectories:NO]; 
+    [openPanel setAllowsMultipleSelection:NO];
+    
+    SEL select = @selector(addImageSheetDidEnd:returnCode:contextInfo:); 
+    
+    [openPanel beginSheetForDirectory:nil
+                                 file:nil 
+                       modalForWindow:window
+                        modalDelegate:self 
+                       didEndSelector:select
+                          contextInfo:recipe];
+}
+
+- (void)addImageSheetDidEnd:(NSOpenPanel*)openPanel 
+                 returnCode:(NSInteger)returnCode 
+                contextInfo:(NSManagedObject*)recipe 
+{
+    if (returnCode == NSCancelButton) return; 
+    
+    NSString *path = [openPanel filename];
+    //Build the path we want the file to be at
+    NSString *destPath = [self applicationSupportFolder]; 
+    NSString *guid = [[NSProcessInfo processInfo] globallyUniqueString]; 
+    destPath = [destPath stringByAppendingPathComponent:guid]; 
+    
+    NSError *error = nil;
+    [[NSFileManager defaultManager] copyItemAtPath:path toPath:destPath
+                                             error:&error];
+    if (error)
+        [NSApp presentError:error];
+    
+    [recipe setValue:destPath forKey:@"imagePath"];
 }
 
 @end

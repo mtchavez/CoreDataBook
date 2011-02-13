@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface CoreDataBookAppDelegate : NSObject <NSApplicationDelegate> {
+    NSArrayController *recipeArrayController;
 @private
     NSWindow *window;
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
@@ -17,11 +18,13 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, assign) IBOutlet NSArrayController *recipeArrayController;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)saveAction:sender;
+- (IBAction)addImage:(id)sender;
 
 @end
