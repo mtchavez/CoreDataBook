@@ -197,6 +197,21 @@
     [super dealloc];
 }
 
+- (NSString *)applicationSupportFolder {
+    NSString *applicationSupportFolder = nil;
+    FSRef foundRef;
+    OSErr err = FSFindFolder(kUserDomain, kApplicationSupportFolderType, kDontCreateFolder, &foundRef);
+    if (err == noErr) {
+        unsigned char path[PATH_MAX];
+        OSStatus validPath = FSRefMakePath(&foundRef, path, sizeof(path));
+        if (validPath == noErr)
+        {
+            applicationSupportFolder = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:path length:(NSUInteger)strlen((char*)path)];
+        }
+    }
+    return [applicationSupportFolder stringByAppendingPathComponent:@"CoreDataBook"];
+}
+
 #pragma -
 #pragma Button Actions
 
@@ -205,18 +220,20 @@
     
     if (!recipe) return;
     
-    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    NSOpenPanel *openPanel = [[NSOpenPanel openPanel] retain];
     [openPanel setCanChooseDirectories:NO]; 
     [openPanel setCanCreateDirectories:NO]; 
+
+    NSArray* fileTypes = [NSArray arrayWithObjects:@"jpg", @"gif", @"png", @"tiff", nil];
     [openPanel setAllowsMultipleSelection:NO];
-    
-    SEL select = @selector(addImageSheetDidEnd:returnCode:contextInfo:); 
+    [openPanel setMessage:@"Choose an image file to display:"];
     
     [openPanel beginSheetForDirectory:nil
-                                 file:nil 
+                                 file:nil
+                                types:fileTypes
                        modalForWindow:window
                         modalDelegate:self 
-                       didEndSelector:select
+                       didEndSelector:@selector(addImageSheetDidEnd:returnCode:contextInfo:)
                           contextInfo:recipe];
 }
 
@@ -228,7 +245,10 @@
     
     NSString *path = [openPanel filename];
     //Build the path we want the file to be at
-    NSString *destPath = [self applicationSupportFolder]; 
+    NSString *destPath = [self applicationSupportFolder];
+//    NSString *applicationSupportFolder =
+//    (NSString *)[[NSFileManager defaultManager] findSystemFolderType:kApplicationSupportFolderType 
+//                                                           forDomain:kUserDomain];
     NSString *guid = [[NSProcessInfo processInfo] globallyUniqueString]; 
     destPath = [destPath stringByAppendingPathComponent:guid]; 
     
