@@ -10,6 +10,7 @@
 
 @interface CoreDataBookAppDelegate : NSObject <NSApplicationDelegate> {
     NSArrayController *recipeArrayController;
+    NSArrayController *recipeIngredientsController;
 @private
     NSWindow *window;
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
@@ -19,6 +20,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, assign) IBOutlet NSArrayController *recipeArrayController;
+@property (nonatomic, assign) IBOutlet NSArrayController *recipeIngredientsController;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

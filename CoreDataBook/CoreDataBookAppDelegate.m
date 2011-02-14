@@ -10,7 +10,7 @@
 
 @implementation CoreDataBookAppDelegate
 
-@synthesize window, recipeArrayController;
+@synthesize window, recipeArrayController, recipeIngredientsController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
