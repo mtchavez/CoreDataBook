@@ -28,5 +28,17 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>RecipeTypes</key>
+	<array>
+		<string>Meat</string>
+		<string>Pasta</string>
+		<string>Dessert</string>
+		<string>Entree</string>
+		<string>Appetizer</string>
+		<string>Salad</string>
+		<string>Sandwich</string>
+		<string>Fruit</string>
+		<string>Bread</string>
+	</array>
 </dict>
 </plist>

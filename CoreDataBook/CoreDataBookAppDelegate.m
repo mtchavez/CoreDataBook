@@ -115,7 +115,28 @@
     }
     __managedObjectContext = [[NSManagedObjectContext alloc] init];
     [__managedObjectContext setPersistentStoreCoordinator:coordinator];
-
+    
+    
+    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease]; 
+    [request setEntity:[NSEntityDescription entityForName:@"Type"
+                                   inManagedObjectContext:__managedObjectContext]];
+    NSError *error = nil; 
+    NSArray *result = [__managedObjectContext executeFetchRequest:request error:&error];
+    NSAssert(error == nil, [error localizedDescription]);
+    
+    if ([result count]) 
+        return __managedObjectContext;
+    
+    NSArray *types; 
+    types = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"RecipeTypes"];
+    for (NSString *type in types) { 
+        NSManagedObject *object = 
+            [NSEntityDescription insertNewObjectForEntityForName:@"Type"
+                                          inManagedObjectContext:__managedObjectContext]; 
+        [object setValue:type forKey:@"name"];
+    }
+    
+    
     return __managedObjectContext;
 }
 
